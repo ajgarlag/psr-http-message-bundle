@@ -25,12 +25,5 @@
             <argument type="service" id="ajgarlag_psr_http_message.psr7.http_foundation_factory" />
             <tag name="kernel.event_subscriber" />
         </service>
-
-        <!-- provide default aliases for PSR-17 based on nyholm/psr7 -->
-        <service id="nyholm.psr7.psr17_factory" class="Nyholm\Psr7\Factory\Psr17Factory" />
-        <service id="Psr\Http\Message\ServerRequestFactoryInterface" alias="nyholm.psr7.psr17_factory" />
-        <service id="Psr\Http\Message\StreamFactoryInterface" alias="nyholm.psr7.psr17_factory" />
-        <service id="Psr\Http\Message\UploadedFileFactoryInterface" alias="nyholm.psr7.psr17_factory" />
-        <service id="Psr\Http\Message\ResponseFactoryInterface" alias="nyholm.psr7.psr17_factory" />
     </services>
 </container>
