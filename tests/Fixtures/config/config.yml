@@ -1,0 +1,16 @@
+framework:
+    test: true
+    router:
+        resource: "%kernel.project_dir%/config/routing.yml"
+
+services:
+    Tests\Fixtures\ActionArgumentsBundle\Controller\ActionArgumentsController:
+        public: true
+
+monolog:
+    handlers:
+        main:
+            type: stream
+            path: "%kernel.logs_dir%/console.log"
+            level: critical
+            channels: []

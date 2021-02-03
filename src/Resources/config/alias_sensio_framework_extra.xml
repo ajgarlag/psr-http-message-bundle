@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- provide default aliases for old SensioFrameworkExtraBundle services ids -->
+        <service id="sensio_framework_extra.psr7.http_message_factory" alias="ajgarlag_psr_http_message.psr7.http_message_factory" />
+        <service id="sensio_framework_extra.psr7.http_foundation_factory" alias="ajgarlag_psr_http_message.psr7.http_foundation_factory" />
+        <service id="sensio_framework_extra.psr7.argument_value_resolver.server_request" alias="ajgarlag_psr_http_message.psr7.argument_value_resolver.server_request" />
+        <service id="sensio_framework_extra.psr7.listener.response" alias="ajgarlag_psr_http_message.psr7.listener.response" />
+    </services>
+</container>

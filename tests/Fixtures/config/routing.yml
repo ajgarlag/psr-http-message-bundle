@@ -1,0 +1,3 @@
+action_arguments_bundle:
+    resource: "@ActionArgumentsBundle/Controller/ActionArgumentsController.php"
+    type: annotation
