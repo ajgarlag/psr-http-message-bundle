@@ -1,3 +1,7 @@
-action_arguments_bundle:
-    resource: "@ActionArgumentsBundle/Controller/ActionArgumentsController.php"
-    type: annotation
+action_arguments_bundle_invoke:
+    path: '/action-arguments/invoke/'
+    controller: 'Tests\Fixtures\ActionArgumentsBundle\Controller\ActionArgumentsController'
+
+action_arguments_bundle_normal:
+    path: '/action-arguments/normal/'
+    controller: 'Tests\Fixtures\ActionArgumentsBundle\Controller\ActionArgumentsController::normalAction'

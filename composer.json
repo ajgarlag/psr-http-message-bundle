@@ -14,13 +14,13 @@
         "symfony/framework-bundle": "^4.4|^5.0"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.18",
         "nyholm/psr7": "^1.1",
-        "symfony/phpunit-bridge": "^4.4.9|^5.0.9",
-        "symfony/yaml": "^4.4|^5.0",
         "symfony/browser-kit": "^4.4|^5.0",
-        "doctrine/annotations": "^1.0",
+        "symfony/monolog-bridge": "^4.0|^5.0",
         "symfony/monolog-bundle": "^3.2",
-        "friendsofphp/php-cs-fixer": "^2.18"
+        "symfony/phpunit-bridge": "^4.4.11|^5.0.11",
+        "symfony/yaml": "^4.4|^5.0"
     },
     "conflict": {
         "sension/framework-extra-bundle": "<6.0"
@@ -50,6 +50,9 @@
         "test": [
             "vendor/bin/simple-phpunit --colors=always"
         ]
+    },
+    "config": {
+        "sort-packages": true
     },
     "extra": {
         "branch-alias": {
