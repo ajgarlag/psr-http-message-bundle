@@ -2,7 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.0.1...main)
+## [Unreleased](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.1.0...main)
+
+## [1.1.0](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.0.1...1.1.0) - 2021-02-04
 
 ### Changed
 - Relax version requirement for [`symfony/psr-http-message-bridge`](https://github.com/symfony/psr-http-message-bridge)

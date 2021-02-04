@@ -69,7 +69,7 @@ If your code depends on [sensio/framework-extra-bundle] [PSR-7] support, this is
 suggested upgrade path:
 
 1. Require `sensio/framework-extra-bundle:^5.3`.
-2. Install this bundle, and enable old services aliasing.
+2. Require `ajgarlag/psr-http-message-bundle:^1.1`, and enable old services aliasing.
 3. Disable PSR-7 support in `sensio_framework_extra` configuration.
 4. If your code depends on old `sensio_framework_extra_...` services identifiers,
    modify service definitions to use the `ajgarlag_psr_http_message_...` alternatives
