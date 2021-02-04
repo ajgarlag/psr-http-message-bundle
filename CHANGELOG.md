@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - Relax version requirement for [`symfony/psr-http-message-bridge`](https://github.com/symfony/psr-http-message-bridge)
+- Do not conflict with [`sensio/framework-extra-bundle`](https://github.com/symfony/psr-http-message-bridge):>=5.3
+
+### Deprecated
+- Depending on old `sensio_framework_extra_...` services identifiers.
 
 ## [1.0.1](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.0.0...1.0.1) - 2021-02-04
 

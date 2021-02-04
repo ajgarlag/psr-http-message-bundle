@@ -25,7 +25,7 @@ $ composer require nyholm/psr7
 Configuration
 -------------
 
-If your code depends on old `sensio_framework_extra_...` services identifiers, you shoud enable aliasing defining:
+If your code depends on old `sensio_framework_extra_...` services identifiers, you should enable aliasing defining:
 ```yaml
 ajgarlag_psr_http_message:
     alias_sensio_framework_extra_services:
@@ -60,6 +60,23 @@ class DefaultController
 
 Note that internally, Symfony always use `Symfony\Component\HttpFoundation\Request`
 and `Symfony\Component\HttpFoundation\Response` instances.
+
+
+Upgrade path from [sensio/framework-extra-bundle] [PSR-7] support
+-----------------------------------------------------------------
+
+If your code depends on [sensio/framework-extra-bundle] [PSR-7] support, this is the
+suggested upgrade path:
+
+1. Require `sensio/framework-extra-bundle:^5.3`.
+2. Install this bundle, and enable old services aliasing.
+3. Disable PSR-7 support in `sensio_framework_extra` configuration.
+4. If your code depends on old `sensio_framework_extra_...` services identifiers,
+   modify service definitions to use the `ajgarlag_psr_http_message_...` alternatives
+   following deprecation messages.
+5. Do you need any other feature provided by `sensio/framework-extra-bundle`?:
+   - YES: require `sensio/framework-extra-bundle:^6.0`.
+   - NO: remove `sensio/framework-extra-bundle`.
 
 
 License

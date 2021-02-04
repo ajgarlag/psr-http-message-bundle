@@ -12,6 +12,7 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentValueResolver\Psr7ServerRequestResolver;
 use Tests\Fixtures\ActionArgumentsBundle\Controller\ActionArgumentsController;
 
 return static function (ContainerConfigurator $container) {
@@ -33,6 +34,12 @@ return static function (ContainerConfigurator $container) {
             ],
         ],
     ]);
+
+    if (class_exists(Psr7ServerRequestResolver::class)) {
+        $container->extension('sensio_framework_extra', [
+            'psr_message' => ['enabled' => true],
+        ]);
+    }
 
     $container->services()->set(ActionArgumentsController::class)->public();
 };
