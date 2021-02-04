@@ -25,6 +25,7 @@ class TestKernel extends Kernel
         return [
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new \Symfony\Bundle\MonologBundle\MonologBundle(),
+            new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new \Ajgarlag\Bundle\PsrHttpMessageBundle\AjgarlagPsrHttpMessageBundle(),
             new \Tests\Fixtures\ActionArgumentsBundle\ActionArgumentsBundle(),
         ];
@@ -32,7 +33,7 @@ class TestKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__.'/config/config.yml');
+        $loader->load(__DIR__.'/config/config.php');
     }
 
     public function getProjectDir(): string

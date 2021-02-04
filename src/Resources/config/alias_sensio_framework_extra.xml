@@ -5,10 +5,17 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <!-- provide default aliases for old SensioFrameworkExtraBundle services ids -->
-        <service id="sensio_framework_extra.psr7.http_message_factory" alias="ajgarlag_psr_http_message.psr7.http_message_factory" />
-        <service id="sensio_framework_extra.psr7.http_foundation_factory" alias="ajgarlag_psr_http_message.psr7.http_foundation_factory" />
-        <service id="sensio_framework_extra.psr7.argument_value_resolver.server_request" alias="ajgarlag_psr_http_message.psr7.argument_value_resolver.server_request" />
-        <service id="sensio_framework_extra.psr7.listener.response" alias="ajgarlag_psr_http_message.psr7.listener.response" />
+        <service id="sensio_framework_extra.psr7.http_message_factory" alias="ajgarlag_psr_http_message.psr7.http_message_factory">
+            <deprecated>The "%alias_id%" service alias is deprecated. Use "ajgarlag_psr_http_message.psr7.http_message_factory" instead.</deprecated>
+        </service>
+        <service id="sensio_framework_extra.psr7.http_foundation_factory" alias="ajgarlag_psr_http_message.psr7.http_foundation_factory">
+            <deprecated>The "%alias_id%" service alias is deprecated. Use "ajgarlag_psr_http_message.psr7.http_foundation_factory" instead.</deprecated>
+        </service>
+        <service id="sensio_framework_extra.psr7.argument_value_resolver.server_request" alias="ajgarlag_psr_http_message.psr7.argument_value_resolver.server_request">
+            <deprecated>The "%alias_id%" service alias is deprecated. Use "ajgarlag_psr_http_message.psr7.argument_value_resolver.server_request" instead.</deprecated>
+        </service>
+        <service id="sensio_framework_extra.psr7.listener.response" alias="ajgarlag_psr_http_message.psr7.listener.response">
+            <deprecated>The "%alias_id%" service alias is deprecated. Use "ajgarlag_psr_http_message.psr7.listener.response" instead.</deprecated>
+        </service>
     </services>
 </container>
