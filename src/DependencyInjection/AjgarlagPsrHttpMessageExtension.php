@@ -30,8 +30,6 @@ class AjgarlagPsrHttpMessageExtension extends Extension implements CompilerPassI
 {
     public function prepend(ContainerBuilder $container)
     {
-        $container->setParameter('ajgarlag_psr_http_message_sensio_psr7_enabled', false);
-
         if (!class_exists(Psr7ServerRequestResolver::class)) {
             return;
         }
@@ -51,7 +49,7 @@ class AjgarlagPsrHttpMessageExtension extends Extension implements CompilerPassI
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
-        if ($container->getParameter('ajgarlag_psr_http_message_sensio_psr7_enabled')) {
+        if ($this->isSensioFrameworkExtraPsr7SupportEnabled($container)) {
             $loader->load('alias_ajgarlag_psr_http_message.xml');
 
             return;
@@ -62,6 +60,15 @@ class AjgarlagPsrHttpMessageExtension extends Extension implements CompilerPassI
         if ($config['alias_sensio_framework_extra_services']['enabled']) {
             $loader->load('alias_sensio_framework_extra.xml');
         }
+    }
+
+    private function isSensioFrameworkExtraPsr7SupportEnabled(ContainerBuilder $container): bool
+    {
+        if (!$container->hasParameter('ajgarlag_psr_http_message_sensio_psr7_enabled')) {
+            return false;
+        }
+
+        return (bool) $container->getParameter('ajgarlag_psr_http_message_sensio_psr7_enabled');
     }
 
     public function process(ContainerBuilder $container)
