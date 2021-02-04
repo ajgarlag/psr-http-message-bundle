@@ -26,6 +26,9 @@
     "conflict": {
         "sensio/framework-extra-bundle": "<5.3"
     },
+    "suggest": {
+        "nyholm/psr7": "Provides autowiring aliases for PSR-17"
+    },
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
