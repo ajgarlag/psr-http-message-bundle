@@ -36,7 +36,7 @@ class AjgarlagPsrHttpMessageExtension extends Extension implements CompilerPassI
             return;
         }
 
-        if (!isset($bundles['SensioFrameworkExtraBundle'])) {
+        if (isset($bundles['SensioFrameworkExtraBundle'])) {
             $configs = $container->getExtensionConfig('sensio_framework_extra');
             $config = $this->processConfiguration(new SensioFrameworkExtraConfiguration(), $configs);
             $sensioPsr7Enabled = isset($config['psr_message']['enabled']) && $config['psr_message']['enabled'];
