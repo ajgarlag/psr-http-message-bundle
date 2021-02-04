@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.0.1...main)
 
-## [1.0.1](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.0.0...1.0.1) - 2021-02-03
+## [1.0.1](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.0.0...1.0.1) - 2021-02-04
 
 ### Fixed
 - Typo in conflict with [`sensio/framework-extra-bundle`](https://github.com/sensiolabs/SensioFrameworkExtraBundle)
