@@ -1,7 +1,12 @@
-CHANGELOG
-=========
+# [CHANGELOG](http://keepachangelog.com/)
+All notable changes to this project will be documented in this file.
+This project adheres to [Semantic Versioning](http://semver.org/).
 
-1.0
----
+## [Unreleased](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.0.0...main)
 
- * Initial release
+### Fixed
+- Typo in conflict with [`sensio/framework-extra-bundle`](https://github.com/sensiolabs/SensioFrameworkExtraBundle)
+
+## [1.0.0](https://github.com/ajgarlag/psr-http-message-bundle/releases/tag/1.0.0) - 2021-02-03
+
+**Initial release**
