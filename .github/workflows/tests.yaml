@@ -7,12 +7,17 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.allow_failure }}
     strategy:
       fail-fast: false
       matrix:
         php: [7.2, 7.3, 7.4, 8.0]
-        stability: [prefer-lowest, prefer-stable, dev]
-
+        stability: [prefer-lowest, prefer-stable]
+        allow_failure: [false]
+        include:
+          - php: 8.0
+            stability: dev
+            allow_failure: true
 
     name: ${{ matrix.php }}-${{ matrix.stability }}
 
@@ -39,4 +44,4 @@ jobs:
         run: composer lint
 
       - name: Execute tests
-        run: composer test
+        run: composer test || ${{ matrix.allow_failure }}
