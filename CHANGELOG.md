@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.1.0...main)
 
+### Fixed
+- Add package and version to deprecated services definitions
+
 ## [1.1.0](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.0.1...1.1.0) - 2021-02-04
 
 ### Changed

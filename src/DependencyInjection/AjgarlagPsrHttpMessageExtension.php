@@ -20,6 +20,7 @@ use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\UploadedFileFactoryInterface;
 use Sensio\Bundle\FrameworkExtraBundle\DependencyInjection\Configuration as SensioFrameworkExtraConfiguration;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Compiler\AliasDeprecatedPublicServicesPass;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
@@ -58,7 +59,11 @@ class AjgarlagPsrHttpMessageExtension extends Extension implements CompilerPassI
         $loader->load('psr7.xml');
 
         if ($config['alias_sensio_framework_extra_services']['enabled']) {
-            $loader->load('alias_sensio_framework_extra.xml');
+            if (!class_exists(AliasDeprecatedPublicServicesPass::class)) {
+                $loader->load('alias_sensio_framework_extra_legacy.xml');
+            } else {
+                $loader->load('alias_sensio_framework_extra.xml');
+            }
         }
     }
 
