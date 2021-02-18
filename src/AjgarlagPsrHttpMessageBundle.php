@@ -12,8 +12,18 @@
 
 namespace Ajgarlag\Bundle\PsrHttpMessageBundle;
 
+use Ajgarlag\Bundle\PsrHttpMessageBundle\DependencyInjection\Compiler\RegisterHttpMessageFactoriesPass;
+use Ajgarlag\Bundle\PsrHttpMessageBundle\DependencyInjection\Compiler\RegisterNyholmPsr17FactoriesPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class AjgarlagPsrHttpMessageBundle extends Bundle
 {
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+
+        $container->addCompilerPass(new RegisterHttpMessageFactoriesPass());
+        $container->addCompilerPass(new RegisterNyholmPsr17FactoriesPass());
+    }
 }

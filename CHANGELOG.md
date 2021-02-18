@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.1.2...main)
 
+### Added
+- Add compiler pass classes to register required services
+
 ### Changed
 - Define `Http(Foundation|Message)FactoryInterface` services if they are not provided by other package
 - Define lower priority for argument value resolver and view event listener
