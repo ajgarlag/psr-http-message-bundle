@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.1.1...main)
 
+### Fixed
+- Use correct namespace to detect SensioFrameworkExtraBundle version
+
 ## [1.1.1](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.1.0...1.1.1) - 2021-02-17
 
 ### Fixed

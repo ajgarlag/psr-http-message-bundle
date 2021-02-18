@@ -12,13 +12,13 @@
 
 namespace Ajgarlag\Bundle\PsrHttpMessageBundle\DependencyInjection;
 
-use Ajgarlag\Bundle\PsrHttpMessageBundle\Request\ArgumentValueResolver\Psr7ServerRequestResolver;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ServerRequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\UploadedFileFactoryInterface;
 use Sensio\Bundle\FrameworkExtraBundle\DependencyInjection\Configuration as SensioFrameworkExtraConfiguration;
+use Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentValueResolver\Psr7ServerRequestResolver;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Compiler\AliasDeprecatedPublicServicesPass;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
