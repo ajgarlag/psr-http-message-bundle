@@ -27,8 +27,11 @@ class AjgarlagPsrHttpMessageExtensionTest extends \PHPUnit\Framework\TestCase
 
         $extension->load([$config], $container);
 
-        $this->assertTrue($container->has('ajgarlag_psr_http_message.psr7.http_message_factory'));
+        $this->assertTrue($container->has(HttpMessageFactoryInterface::class));
+        $this->assertTrue($container->has(HttpFoundationFactoryInterface::class));
+
         $this->assertTrue($container->has('ajgarlag_psr_http_message.psr7.http_foundation_factory'));
+        $this->assertTrue($container->has('ajgarlag_psr_http_message.psr7.http_message_factory'));
         $this->assertTrue($container->has('ajgarlag_psr_http_message.psr7.argument_value_resolver.server_request'));
         $this->assertTrue($container->has('ajgarlag_psr_http_message.psr7.listener.response'));
 
@@ -36,9 +39,6 @@ class AjgarlagPsrHttpMessageExtensionTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($container->hasAlias('sensio_framework_extra.psr7.http_foundation_factory'));
         $this->assertFalse($container->hasAlias('sensio_framework_extra.psr7.argument_value_resolver.server_request'));
         $this->assertFalse($container->hasAlias('sensio_framework_extra.psr7.listener.response'));
-
-        $this->assertAlias($container, HttpMessageFactoryInterface::class, 'ajgarlag_psr_http_message.psr7.http_message_factory');
-        $this->assertAlias($container, HttpFoundationFactoryInterface::class, 'ajgarlag_psr_http_message.psr7.http_foundation_factory');
     }
 
     public function testSensioFrameworkExtraAliasConfiguration()
@@ -62,9 +62,6 @@ class AjgarlagPsrHttpMessageExtensionTest extends \PHPUnit\Framework\TestCase
         $this->assertAlias($container, 'sensio_framework_extra.psr7.http_foundation_factory', 'ajgarlag_psr_http_message.psr7.http_foundation_factory');
         $this->assertAlias($container, 'sensio_framework_extra.psr7.argument_value_resolver.server_request', 'ajgarlag_psr_http_message.psr7.argument_value_resolver.server_request');
         $this->assertAlias($container, 'sensio_framework_extra.psr7.listener.response', 'ajgarlag_psr_http_message.psr7.listener.response');
-
-        $this->assertAlias($container, HttpMessageFactoryInterface::class, 'ajgarlag_psr_http_message.psr7.http_message_factory');
-        $this->assertAlias($container, HttpFoundationFactoryInterface::class, 'ajgarlag_psr_http_message.psr7.http_foundation_factory');
     }
 
     public function testAjgarlagPsrHttpMessageAliasConfiguration()

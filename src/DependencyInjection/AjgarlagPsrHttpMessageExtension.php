@@ -51,12 +51,22 @@ class AjgarlagPsrHttpMessageExtension extends Extension implements CompilerPassI
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
         if ($this->isSensioFrameworkExtraPsr7SupportEnabled($container)) {
-            $loader->load('alias_ajgarlag_psr_http_message.xml');
+            if (!class_exists(AliasDeprecatedPublicServicesPass::class)) {
+                $loader->load('alias_ajgarlag_psr_http_message_legacy.xml');
+            } else {
+                $loader->load('alias_ajgarlag_psr_http_message.xml');
+            }
 
             return;
         }
 
         $loader->load('psr7.xml');
+
+        if (!class_exists(AliasDeprecatedPublicServicesPass::class)) {
+            $loader->load('deprecations_legacy.xml');
+        } else {
+            $loader->load('deprecations.xml');
+        }
 
         if ($config['alias_sensio_framework_extra_services']['enabled']) {
             if (!class_exists(AliasDeprecatedPublicServicesPass::class)) {

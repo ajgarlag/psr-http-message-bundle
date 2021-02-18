@@ -71,8 +71,8 @@ suggested upgrade path:
 1. Require `sensio/framework-extra-bundle:^5.3`.
 2. Require `ajgarlag/psr-http-message-bundle:^1.1`, and enable old services aliasing.
 3. Disable PSR-7 support in `sensio_framework_extra` configuration.
-4. If your code depends on old `sensio_framework_extra_...` services identifiers,
-   modify service definitions to use the `ajgarlag_psr_http_message_...` alternatives
+4. If your code depends on old `sensio_framework_extra.psr7.http_(message|foundation)_factory` services identifiers,
+   modify service definitions to use the `Symfony\Bridge\PsrHttpMessage\Http(Message|Foundation)Interface` alternatives
    following deprecation messages.
 5. Do you need any other feature provided by `sensio/framework-extra-bundle`?:
    - YES: require `sensio/framework-extra-bundle:^6.0`.
