@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - Define `Http(Foundation|Message)FactoryInterface` services if they are not provided by other package
+- Define lower priority for argument value resolver and view event listener
 
 ### Deprecated
 - Deprecate all `ajgarlag_psr_http_message.psr7...` services identifiers
