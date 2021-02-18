@@ -17,6 +17,7 @@ use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ServerRequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\UploadedFileFactoryInterface;
+use Psr\Http\Message\UriFactoryInterface;
 use Sensio\Bundle\FrameworkExtraBundle\DependencyInjection\Configuration as SensioFrameworkExtraConfiguration;
 use Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentValueResolver\Psr7ServerRequestResolver;
 use Symfony\Component\Config\FileLocator;
@@ -83,6 +84,7 @@ class AjgarlagPsrHttpMessageExtension extends Extension implements CompilerPassI
             ServerRequestFactoryInterface::class,
             StreamFactoryInterface::class,
             UploadedFileFactoryInterface::class,
+            UriFactoryInterface::class,
         ];
 
         $nyholmPsr17Id = 'nyholm.psr7.psr17_factory';

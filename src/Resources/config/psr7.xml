@@ -10,6 +10,7 @@
             <argument type="service" id="Psr\Http\Message\StreamFactoryInterface" />
             <argument type="service" id="Psr\Http\Message\UploadedFileFactoryInterface" />
             <argument type="service" id="Psr\Http\Message\ResponseFactoryInterface" />
+            <argument type="service" id="Psr\Http\Message\UriFactoryInterface" />
         </service>
         <service id="ajgarlag_psr_http_message.psr7.http_foundation_factory" class="Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory" />
 
