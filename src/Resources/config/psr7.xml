@@ -5,25 +5,25 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="ajgarlag_psr_http_message.psr7.http_message_factory" class="Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory">
+
+        <service id="Symfony\Bridge\PsrHttpMessage\HttpMessageFactoryInterface" class="Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory">
             <argument type="service" id="Psr\Http\Message\ServerRequestFactoryInterface" />
             <argument type="service" id="Psr\Http\Message\StreamFactoryInterface" />
             <argument type="service" id="Psr\Http\Message\UploadedFileFactoryInterface" />
             <argument type="service" id="Psr\Http\Message\ResponseFactoryInterface" />
         </service>
-        <service id="ajgarlag_psr_http_message.psr7.http_foundation_factory" class="Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory" />
 
-        <service id="Symfony\Bridge\PsrHttpMessage\HttpFoundationFactoryInterface" alias="ajgarlag_psr_http_message.psr7.http_foundation_factory"/>
-        <service id="Symfony\Bridge\PsrHttpMessage\HttpMessageFactoryInterface" alias="ajgarlag_psr_http_message.psr7.http_message_factory"/>
+        <service id="Symfony\Bridge\PsrHttpMessage\HttpFoundationFactoryInterface" class="Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory"/>
 
-        <service id="ajgarlag_psr_http_message.psr7.argument_value_resolver.server_request" class="Ajgarlag\Bundle\PsrHttpMessageBundle\Request\ArgumentValueResolver\Psr7ServerRequestResolver">
-            <argument type="service" id="ajgarlag_psr_http_message.psr7.http_message_factory" />
+        <service id=".ajgarlag_psr_http_message.psr7.argument_value_resolver.server_request" class="Ajgarlag\Bundle\PsrHttpMessageBundle\Request\ArgumentValueResolver\Psr7ServerRequestResolver">
+            <argument type="service" id="Symfony\Bridge\PsrHttpMessage\HttpMessageFactoryInterface" />
             <tag name="controller.argument_value_resolver" />
         </service>
 
-        <service id="ajgarlag_psr_http_message.psr7.listener.response" class="Ajgarlag\Bundle\PsrHttpMessageBundle\EventListener\PsrResponseListener">
-            <argument type="service" id="ajgarlag_psr_http_message.psr7.http_foundation_factory" />
+        <service id=".ajgarlag_psr_http_message.psr7.listener.response" class="Ajgarlag\Bundle\PsrHttpMessageBundle\EventListener\PsrResponseListener">
+            <argument type="service" id="Symfony\Bridge\PsrHttpMessage\HttpFoundationFactoryInterface" />
             <tag name="kernel.event_subscriber" />
         </service>
+
     </services>
 </container>
