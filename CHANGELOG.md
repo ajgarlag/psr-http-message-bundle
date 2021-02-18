@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.1.2...main)
 
+### Changed
+- Define `Http(Foundation|Message)FactoryInterface` services if they are not provided by other package
+- Define lower priority for argument value resolver and view event listener
+
 ### Deprecated
 - Deprecate all `ajgarlag_psr_http_message.psr7...` services identifiers
 
