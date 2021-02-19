@@ -12,24 +12,14 @@
 
 namespace Ajgarlag\Bundle\PsrHttpMessageBundle\DependencyInjection;
 
-use Nyholm\Psr7\Factory\Psr17Factory;
-use Psr\Http\Message\ResponseFactoryInterface;
-use Psr\Http\Message\ServerRequestFactoryInterface;
-use Psr\Http\Message\StreamFactoryInterface;
-use Psr\Http\Message\UploadedFileFactoryInterface;
 use Sensio\Bundle\FrameworkExtraBundle\DependencyInjection\Configuration as SensioFrameworkExtraConfiguration;
 use Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentValueResolver\Psr7ServerRequestResolver;
-use Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory;
-use Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory;
-use Symfony\Bridge\PsrHttpMessage\HttpFoundationFactoryInterface;
-use Symfony\Bridge\PsrHttpMessage\HttpMessageFactoryInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Compiler\AliasDeprecatedPublicServicesPass;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class AjgarlagPsrHttpMessageExtension extends Extension implements CompilerPassInterface, PrependExtensionInterface
@@ -93,52 +83,5 @@ class AjgarlagPsrHttpMessageExtension extends Extension implements CompilerPassI
 
     public function process(ContainerBuilder $container)
     {
-        $this->processPsrHttpMessageBridgeDefinitions($container);
-        $this->processPsr17Definitions($container);
-    }
-
-    private function processPsrHttpMessageBridgeDefinitions(ContainerBuilder $container)
-    {
-        if (!$container->has(HttpMessageFactoryInterface::class)) {
-            $container
-                ->register(HttpMessageFactoryInterface::class, PsrHttpFactory::class)
-                ->setArguments([
-                    new Reference(ServerRequestFactoryInterface::class),
-                    new Reference(StreamFactoryInterface::class),
-                    new Reference(UploadedFileFactoryInterface::class),
-                    new Reference(ResponseFactoryInterface::class),
-                ])
-            ;
-        }
-
-        if (!$container->has(HttpFoundationFactoryInterface::class)) {
-            $container
-                ->register(HttpFoundationFactoryInterface::class, HttpFoundationFactory::class)
-            ;
-        }
-    }
-
-    private function processPsr17Definitions(ContainerBuilder $container)
-    {
-        $requiredInterfaces = [
-            ResponseFactoryInterface::class,
-            ServerRequestFactoryInterface::class,
-            StreamFactoryInterface::class,
-            UploadedFileFactoryInterface::class,
-        ];
-
-        $nyholmPsr17Id = 'nyholm.psr7.psr17_factory';
-
-        if (!$container->has($nyholmPsr17Id) && class_exists(Psr17Factory::class)) {
-            $container->register($nyholmPsr17Id, Psr17Factory::class);
-        }
-
-        if ($container->has($nyholmPsr17Id)) {
-            foreach ($requiredInterfaces as $requiredInterface) {
-                if (!$container->has($requiredInterface)) {
-                    $container->setAlias($requiredInterface, $nyholmPsr17Id);
-                }
-            }
-        }
     }
 }

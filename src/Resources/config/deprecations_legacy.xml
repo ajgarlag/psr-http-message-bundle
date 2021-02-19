@@ -13,12 +13,12 @@
             <deprecated>The "%alias_id%" service alias is deprecated. Use "Symfony\Bridge\PsrHttpMessage\HttpFoundationFactoryInterface" instead.</deprecated>
         </service>
 
-        <service id="ajgarlag_psr_http_message.psr7.argument_value_resolver.server_request" alias=".ajgarlag_psr_http_message.psr7.argument_value_resolver.server_request">
-            <deprecated/>
+        <service id="ajgarlag_psr_http_message.psr7.argument_value_resolver.server_request" alias="Ajgarlag\Bundle\PsrHttpMessageBundle\Request\ArgumentValueResolver\Psr7ServerRequestResolver">
+            <deprecated>The "%alias_id%" service alias is deprecated. Use "Ajgarlag\Bundle\PsrHttpMessageBundle\Request\ArgumentValueResolver\Psr7ServerRequestResolver" instead.</deprecated>
         </service>
 
-        <service id="ajgarlag_psr_http_message.psr7.listener.response" alias=".ajgarlag_psr_http_message.psr7.listener.response">
-            <deprecated/>
+        <service id="ajgarlag_psr_http_message.psr7.listener.response" alias="Ajgarlag\Bundle\PsrHttpMessageBundle\EventListener\PsrResponseListener">
+            <deprecated>The "%alias_id%" service alias is deprecated. Use "Ajgarlag\Bundle\PsrHttpMessageBundle\Request\ArgumentValueResolver\PsrResponseListener" instead.</deprecated>
         </service>
 
     </services>
