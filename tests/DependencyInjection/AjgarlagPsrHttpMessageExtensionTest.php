@@ -15,6 +15,7 @@ namespace Ajgarlag\Bundle\PsrHttpMessageBundle\Tests\DependencyInjection;
 use Ajgarlag\Bundle\PsrHttpMessageBundle\DependencyInjection\AjgarlagPsrHttpMessageExtension;
 use Ajgarlag\Bundle\PsrHttpMessageBundle\DependencyInjection\Compiler\RegisterHttpMessageFactoriesPass;
 use Ajgarlag\Bundle\PsrHttpMessageBundle\DependencyInjection\Compiler\RegisterNyholmPsr17FactoriesPass;
+use Ajgarlag\Bundle\PsrHttpMessageBundle\DependencyInjection\Compiler\TagArgumentValueResolverPass;
 use Ajgarlag\Bundle\PsrHttpMessageBundle\Request\ArgumentValueResolver\Psr7ServerRequestResolver;
 use PHPUnit\Framework\TestCase;
 use Symfony\Bridge\PsrHttpMessage\HttpFoundationFactoryInterface;
@@ -48,6 +49,7 @@ class AjgarlagPsrHttpMessageExtensionTest extends TestCase
         $extension = new AjgarlagPsrHttpMessageExtension();
         $extension->load([$config], $container);
         $extension->process($container);
+        (new TagArgumentValueResolverPass())->process($container);
         (new RegisterHttpMessageFactoriesPass())->process($container);
         (new RegisterNyholmPsr17FactoriesPass())->process($container);
     }

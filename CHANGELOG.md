@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - Add compiler pass classes to register required services
+- Add compiler pass classes to conditionally tag argument value resolver and view event listener
 
 ### Changed
 - Define `Http(Foundation|Message)FactoryInterface` services if they are not provided by other package
