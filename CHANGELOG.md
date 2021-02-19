@@ -2,7 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.1.2...main)
+## [Unreleased](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.2.0...main)
+
+## [1.2.0](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.1.2...1.2.0) - 2021-02-19
 
 ### Added
 - Add compiler pass classes to register required services
