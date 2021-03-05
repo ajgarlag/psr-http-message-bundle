@@ -11,15 +11,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [7.2, 7.3, 7.4, 8.0]
-        stability: [prefer-lowest, prefer-stable]
+        php: ['7.2', '7.3', '7.4', '8.0']
+        stable: ['--prefer-stable']
+        lowest: ['--prefer-lowest', '']
         allow_failure: [false]
         include:
-          - php: 8.0
-            stability: dev
+          - php: '8.0'
+            stable: ''
+            lowest: ''
             allow_failure: true
 
-    name: ${{ matrix.php }}-${{ matrix.stability }}
+    name: ${{ matrix.php }}${{ matrix.stable }}${{ matrix.lowest }}
 
     steps:
       - name: Checkout code
@@ -29,7 +31,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.composer/cache/files
-          key: dependencies-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
+          key: dependencies-php-${{ matrix.php }}${{ matrix.stable }}${{ matrix.lowest }}-composer-${{ hashFiles('composer.json') }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -38,7 +40,7 @@ jobs:
           coverage: none
 
       - name: Install dependencies
-        run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress
+        run: composer update ${{ matrix.stable }} ${{ matrix.lowest }} --prefer-dist --no-interaction --no-progress
 
       - name: Check coding standard
         run: composer lint
