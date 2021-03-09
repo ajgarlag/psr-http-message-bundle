@@ -15,11 +15,10 @@ namespace Ajgarlag\Bundle\PsrHttpMessageBundle\DependencyInjection;
 use Sensio\Bundle\FrameworkExtraBundle\DependencyInjection\Configuration as SensioFrameworkExtraConfiguration;
 use Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentValueResolver\Psr7ServerRequestResolver;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\Compiler\AliasDeprecatedPublicServicesPass;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class AjgarlagPsrHttpMessageExtension extends Extension implements CompilerPassInterface, PrependExtensionInterface
@@ -43,32 +42,18 @@ class AjgarlagPsrHttpMessageExtension extends Extension implements CompilerPassI
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new PhpFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
         if ($this->isSensioFrameworkExtraPsr7SupportEnabled($container)) {
-            if (!class_exists(AliasDeprecatedPublicServicesPass::class)) {
-                $loader->load('alias_ajgarlag_psr_http_message_legacy.xml');
-            } else {
-                $loader->load('alias_ajgarlag_psr_http_message.xml');
-            }
+            $loader->load('alias_ajgarlag_psr_http_message.php');
 
             return;
         }
 
-        $loader->load('psr7.xml');
-
-        if (!class_exists(AliasDeprecatedPublicServicesPass::class)) {
-            $loader->load('deprecations_legacy.xml');
-        } else {
-            $loader->load('deprecations.xml');
-        }
+        $loader->load('psr7.php');
 
         if ($config['alias_sensio_framework_extra_services']['enabled']) {
-            if (!class_exists(AliasDeprecatedPublicServicesPass::class)) {
-                $loader->load('alias_sensio_framework_extra_legacy.xml');
-            } else {
-                $loader->load('alias_sensio_framework_extra.xml');
-            }
+            $loader->load('alias_sensio_framework_extra.php');
         }
     }
 
