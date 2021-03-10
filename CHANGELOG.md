@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.2.0...main)
 
+### Added
+- Add compiler pass class to ensure that required PSR-17 factories are defined
+
 ## [1.2.0](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.1.2...1.2.0) - 2021-02-19
 
 ### Added
