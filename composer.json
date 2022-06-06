@@ -47,13 +47,13 @@
     },
     "scripts": {
         "fix-cs": [
-            "vendor/bin/php-cs-fixer fix --ansi"
+            "@php vendor/bin/php-cs-fixer fix --ansi"
         ],
         "lint": [
-            "vendor/bin/php-cs-fixer fix --dry-run --ansi"
+            "@php vendor/bin/php-cs-fixer fix --dry-run --ansi"
         ],
         "test": [
-            "vendor/bin/simple-phpunit --colors=always"
+            "@php vendor/bin/simple-phpunit --colors=always"
         ]
     },
     "config": {

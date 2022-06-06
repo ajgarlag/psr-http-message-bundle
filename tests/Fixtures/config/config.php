@@ -12,6 +12,7 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use Doctrine\Common\Annotations\AnnotationReader;
 use Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentValueResolver\Psr7ServerRequestResolver;
 use Tests\Fixtures\ActionArgumentsBundle\Controller\ActionArgumentsController;
 
@@ -42,4 +43,5 @@ return static function (ContainerConfigurator $container) {
     }
 
     $container->services()->set(ActionArgumentsController::class)->public();
+    $container->services()->set('annotation_reader', AnnotationReader::class);
 };
