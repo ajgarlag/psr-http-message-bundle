@@ -1,4 +1,4 @@
-name: tests
+name: cs
 
 on:
   push:
@@ -11,18 +11,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['7.2', '7.3', '7.4', '8.0', '8.1']
+        php: ['8.1']
         composer-flags: ['--prefer-stable']
         can-fail: [false]
-        include:
-          # Lowest supported versions
-          - php: '7.2'
-            composer-flags: '--prefer-stable --prefer-lowest'
-            can-fail: false
-          # Development versions
-          - php: '8.1'
-            composer-flags: ''
-            can-fail: true
 
     name: "PHP ${{ matrix.php }} - Composer ${{ matrix.composer-flags }}"
 
@@ -45,5 +36,5 @@ jobs:
       - name: Install dependencies
         run: composer update --ansi ${{ matrix.composer-flags }}
 
-      - name: Execute tests
-        run: composer test || ${{ matrix.can-fail }}
+      - name: Check coding standard
+        run: composer lint || ${{ matrix.can-fail }}
