@@ -9,7 +9,7 @@
     <php>
         <server name="KERNEL_CLASS" value="Tests\Fixtures\TestKernel" />
         <server name="KERNEL_DIR" value="tests/Fixtures/" />
-        <env name="SYMFONY_DEPRECATIONS_HELPER" value="/disabled/" />
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=0" />
     </php>
     <filter>
         <whitelist>
@@ -21,4 +21,7 @@
             </exclude>
         </whitelist>
     </filter>
+    <listeners>
+        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener"/>
+    </listeners>
 </phpunit>

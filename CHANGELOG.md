@@ -4,6 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.2.1...main)
 
+### Added
+- Add Symfony 6 support
+
+### Removed
+- Remove PHP <7.4 support
+- Remove Symfony <5.4 support
+
 ## [1.2.1](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.2.1...1.2.1) - 2021-03-21
 
 ### Added
