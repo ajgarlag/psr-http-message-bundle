@@ -2,7 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.2.1...main)
+## [Unreleased](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.2.2...main)
+
+## [1.2.2](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.2.1...1.2.2) - 2022-09-28
 
 ### Added
 - Add Symfony 6 support
@@ -11,7 +13,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Remove PHP <7.4 support
 - Remove Symfony <5.4 support
 
-## [1.2.1](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.2.1...1.2.1) - 2021-03-21
+## [1.2.1](https://github.com/ajgarlag/psr-http-message-bundle/compare/1.2.0...1.2.1) - 2021-03-21
 
 ### Added
 - Add compiler pass class to ensure that required PSR-17 factories are defined
