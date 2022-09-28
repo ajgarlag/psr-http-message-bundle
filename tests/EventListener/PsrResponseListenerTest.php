@@ -13,8 +13,8 @@
 namespace Ajgarlag\Bundle\PsrHttpMessageBundle\Tests\EventListener;
 
 use Ajgarlag\Bundle\PsrHttpMessageBundle\EventListener\PsrResponseListener;
+use Nyholm\Psr7\Response;
 use Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory;
-use Symfony\Bridge\PsrHttpMessage\Tests\Fixtures\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;

@@ -37,11 +37,15 @@ return static function (ContainerConfigurator $container) {
         ],
     ]);
 
+    $sensioFrameworkExtraConfig = [
+        'router' => ['annotations' => false],
+    ];
     if (class_exists(Psr7ServerRequestResolver::class)) {
-        $container->extension('sensio_framework_extra', [
+        $sensioFrameworkExtraConfig = array_merge($sensioFrameworkExtraConfig, [
             'psr_message' => ['enabled' => true],
         ]);
     }
+    $container->extension('sensio_framework_extra', $sensioFrameworkExtraConfig);
 
     $container->services()->set(ActionArgumentsController::class)->public();
     $container->services()->set('annotation_reader', AnnotationReader::class);
